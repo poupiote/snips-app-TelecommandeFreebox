@@ -89,6 +89,15 @@ class TelecommandeFreebox(object):
         # if need to speak the execution result by tts
         #    hermes.publish_start_session_notification(intent_message.site_id, telecommande_msg, "FreeboxTelecommande")
 
+    def switchFunc(choice):
+        return {
+            'powerFreebox':'powerFreebox',
+            'pip':'pip',
+            'switchPip':'switchPip',
+
+        }.get(choice(),self.channelChange())
+
+    '''
     def powerFreebox(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=power')
@@ -96,6 +105,8 @@ class TelecommandeFreebox(object):
     def switchPip(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=red')
+
+    '''
 
     def stopPip(self,FREEREMOTECODE):
         time.sleep(1)

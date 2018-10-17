@@ -1,3 +1,6 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
 import ConfigParser
 import io
 
@@ -31,4 +34,3 @@ class SnipsConfigParser(ConfigParser.SafeConfigParser):
         except (IOError, ConfigParser.Error) as e:
             print(e)
             return False
-
