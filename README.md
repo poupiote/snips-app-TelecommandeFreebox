@@ -1,6 +1,15 @@
 ## Documentation
 
-### change log@
+Permet le control de la freebox révolution V6 via snips.
+
+Il vous faudra récuperer le code de votre télécommande pour ce faire :
+Dans les **réglages** de la freebox player ensuite **système**, **informations freebox player et server**, vous verrez alors à droite de l'écran : **Code télécommande réseau**
+
+## Démo
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/ntSlGBUQ0c0/0.jpg)](https://youtu.be/ntSlGBUQ0c0)
+
+### change log
 
 #### V0.0.1
 - mettre en pause un programme télé (ex : hey snips met en pause)
