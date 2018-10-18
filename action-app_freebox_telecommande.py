@@ -19,7 +19,6 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
 REMOTE_ADDR = 'http://hd1.freebox.fr/pub/remote_control?code='
 
-
 class TelecommandeFreebox(object):
     """Class used to wrap action code with mqtt connection
 
@@ -36,23 +35,20 @@ class TelecommandeFreebox(object):
         # start listening to MQTT
         self.start_blocking()
 
-    def playPause(self,FREEREMOTECODE):
-        time.sleep(1)
-        requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=play')
-
-
     def askFreeboxCommand_callback(self, hermes, intent_message):
         # terminate the session first if not continue
         hermes.publish_end_session(intent_message.session_id, "")
 
         commandeFreebox = None
+        print '[Recep] intent value: {}'.format(intent_message.slots.TvCommand.first().value)
 
+        #if intent_message.slots.TvChannel.first().value == 'oncle':
+            #print '[Received] intent: {}'.format(intent_message.slots.TvChannel)
         commandeFreebox = intent_message.slots.TvCommand.first().value
 
         if commandeFreebox is None:
             telecommande_msg = "Je ne comprend pas ce que vous me demandez"
-
-
+        #else:
         FREEREMOTECODE = self.config.get("secret").get("freeremotecode")
 
         if commandeFreebox == 'power':
@@ -88,9 +84,10 @@ class TelecommandeFreebox(object):
         else :
             self.channelChange(commandeFreebox,FREEREMOTECODE)
 
-    def playPause(self,FREEREMOTECODE):
-        time.sleep(1)
-        requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=play')
+            #telecommande_msg = 'J\'allume la télévision'
+            #requests.get('http://hd1.freebox.fr/pub/remote_control?code=69244748&key=power')
+        # if need to speak the execution result by tts
+        #    hermes.publish_start_session_notification(intent_message.site_id, telecommande_msg, "FreeboxTelecommande")
 
     def powerFreebox(self,FREEREMOTECODE):
         time.sleep(1)
@@ -99,7 +96,6 @@ class TelecommandeFreebox(object):
     def switchPip(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=red')
-
 
     def stopPip(self,FREEREMOTECODE):
         time.sleep(1)
@@ -210,11 +206,17 @@ class TelecommandeFreebox(object):
         time.sleep(1)
         for digit in commandeFreebox:
             requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key='+digit)
+        print commandeFreebox
+        #hermes.publish_end_session(intent_message.session_id, "")
+        #for channel in intent_message.slot.channel.first().value:
+        #    requests.get("http://hd1.freebox.fr/pub/remote_control?code=".self.config.get("secret").get("freeremotecode")."&key".intent_message.slot.channel.first().value)
+        #print '[Received] intent: {}'.format(intent_message.intent.intent_name)
 
     # --> Master callback function, triggered everytime an intent is recognized
     def FreeboxTelecommande_callback(self,hermes, intent_message):
         coming_intent = intent_message.intent.intent_name
 
+        print '[Recept] intent {}'.format(coming_intent)
         if coming_intent == 'Tarlak:ChannelFreebox':
             self.askFreeboxCommand_callback(hermes, intent_message)
         # more callback and if condition goes here...
