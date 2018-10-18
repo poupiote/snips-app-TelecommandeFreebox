@@ -19,6 +19,7 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
 REMOTE_ADDR = 'http://hd1.freebox.fr/pub/remote_control?code='
 
+
 class TelecommandeFreebox(object):
     """Class used to wrap action code with mqtt connection
 
@@ -34,6 +35,11 @@ class TelecommandeFreebox(object):
 
         # start listening to MQTT
         self.start_blocking()
+
+    def playPause(self,FREEREMOTECODE):
+        time.sleep(1)
+        requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=play')
+
 
     def askFreeboxCommand_callback(self, hermes, intent_message):
         # terminate the session first if not continue
@@ -84,20 +90,23 @@ class TelecommandeFreebox(object):
         else :
             self.channelChange(commandeFreebox,FREEREMOTECODE)
 
-            #telecommande_msg = 'J\'allume la télévision'
-            #requests.get('http://hd1.freebox.fr/pub/remote_control?code=69244748&key=power')
         # if need to speak the execution result by tts
         #    hermes.publish_start_session_notification(intent_message.site_id, telecommande_msg, "FreeboxTelecommande")
+        '''
+        commandChoice = {
+            "powerFreebox": lambda: powerFreebox(FREEREMOTECODE),
+            "pip": lambda: pip(FREEREMOTECODE),
+            "switchPip": lambda: switchPip(FREEREMOTECODE),
+            "pause":  lambda: playPause(FREEREMOTECODE)
+        }
 
-    def switchFunc(choice):
-        return {
-            'powerFreebox':'powerFreebox',
-            'pip':'pip',
-            'switchPip':'switchPip',
+        commandChoice.get(commandeFreebox,channelChange)()
+        '''
 
-        }.get(choice(),self.channelChange())
+    def playPause(self,FREEREMOTECODE):
+        time.sleep(1)
+        requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=play')
 
-    '''
     def powerFreebox(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=power')
@@ -106,7 +115,7 @@ class TelecommandeFreebox(object):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=red')
 
-    '''
+
 
     def stopPip(self,FREEREMOTECODE):
         time.sleep(1)
