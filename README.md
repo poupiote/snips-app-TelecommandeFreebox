@@ -1,5 +1,7 @@
 - [Documentation](#Documentation)
 - [Démo](#Démo)
+- [Command List](#Command)
+- [Tips](#Tips)
 
 
 ## Documentation
@@ -36,25 +38,18 @@ Dans les **réglages** de la freebox player ensuite **système**, **informations
 * Accès au programme télé (ex : Hey snips affiche le programme télé)
 * Quitte le programme télé (ex : Hey snips quitte le programme télé)
 * Changer de chaine (ex : Hey snips met France 4)
-### change log
 
-#### V0.0.2
+## change log
+
+### V0.0.2
 
 -   Allumer / éteindre la freebox (ex hey snips démarre la télé, hey snips arrête la télé, hey snips peux tu demarrer la télé)
 -   Ajout du chaine par defaut afin de zapper directement dessus à l'allumage de la Freebox
 -   Ajout du volume par defaut, permet de définir le volume minimum lors de l'allumage de la Freebox
 
-#### V0.0.1
+### V0.0.1
 -   Initial realese
 
-### Tips
+## Tips
 
 1. CEC option
-
-    If you leave your TV on standby and your TV is CEC compatible you can activate the CEC options of the freebox player and also of your TV. Thanks to this you will be able to turn on your freebox player by voice with snips which will wake up your TV too. And the opposite is true when you turn off your freebox it will put your TV on standby
-
-   To activate this in the freebox player go to **Réglages > Affichage > Réglages HDMI CEC ** then activate this options :
-    * Activer le HDMI CEC
-    * Mise en veille des équipements HDMI CEC depuis la Freebox
-
-   Don't forget to activate CEC option in your TV if this is possible
