@@ -13,7 +13,7 @@ Dans les **réglages** de la freebox player ensuite **système**, **informations
 
 #### V0.0.2
 
--   fonction suivant/précédent (Hey snips met le/la XXXX suivant)
+-   Allumer / éteindre la freebox (ex hey snips démarre la télé, hey snips arrête la télé, hey snips peux tu demarrer la télé)
 -
 
 #### V0.0.1
