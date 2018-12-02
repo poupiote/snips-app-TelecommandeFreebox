@@ -1,6 +1,6 @@
 - [Documentation](#Documentation)
 - [Démo](#Démo)
-- [Command List](#Command)
+- [Command List](#Command list)
 - [Tips](#Tips)
 
 
