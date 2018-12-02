@@ -1,3 +1,7 @@
+- [Documentation](#Documentation)
+- [Démo](#Démo)
+
+
 ## Documentation
 
 Permet le control de la freebox révolution V6 via snips.
