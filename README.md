@@ -14,7 +14,8 @@ Dans les **réglages** de la freebox player ensuite **système**, **informations
 #### V0.0.2
 
 -   Allumer / éteindre la freebox (ex hey snips démarre la télé, hey snips arrête la télé, hey snips peux tu demarrer la télé)
--
+-   Ajout du chaine par defaut afin de zapper directement dessus à l'allumage de la Freebox
+-   Ajout du volume par defaut, permet de définir le volume minimum lors de l'allumage de la Freebox
 
 #### V0.0.1
 -   mettre en pause un programme télé (ex : hey snips met en pause)
