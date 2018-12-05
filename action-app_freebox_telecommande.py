@@ -266,11 +266,6 @@ class TelecommandeFreebox(object):
         for digit in commandeFreebox:
             requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key='+digit)
 
-        #hermes.publish_end_session(intent_message.session_id, "")
-        #for channel in intent_message.slot.channel.first().value:
-        #    requests.get("http://hd1.freebox.fr/pub/remote_control?code=".self.config.get("secret").get("freeremotecode")."&key".intent_message.slot.channel.first().value)
-        #print '[Received] intent: {}'.format(intent_message.intent.intent_name)
-
     # --> Master callback function, triggered everytime an intent is recognized
     def FreeboxTelecommande_callback(self,hermes, intent_message):
         coming_intent = intent_message.intent.intent_name

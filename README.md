@@ -53,3 +53,11 @@ Dans les **réglages** de la freebox player ensuite **système**, **informations
 ## Tips
 
 1. CEC option
+
+    If you leave your TV on standby and your TV is CEC compatible you can activate the CEC options of the freebox player and also of your TV. Thanks to this you will be able to turn on your freebox player by voice with snips which will wake up your TV too. And the opposite is true when you turn off your freebox it will put your TV on standby
+
+    To activate this in the freebox player go to **Réglages > Affichage > Réglages HDMI CEC ** then activate this options :
+
+    * Activer le HDMI CEC
+    * Mise en veille des équipements HDMI CEC depuis la Freebox
+    * Don’t forget to activate CEC option in your TV if this is possible
