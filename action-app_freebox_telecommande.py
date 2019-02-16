@@ -17,8 +17,7 @@ MQTT_IP_ADDR = "localhost"
 MQTT_PORT = 1883
 MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
-REMOTE_ADDR = 'http://hd1.freebox.fr/pub/remote_control?code='
-
+REMOTE_ADDR =""
 
 class TelecommandeFreebox(object):
     """Class used to wrap action code with mqtt connection
@@ -33,6 +32,8 @@ class TelecommandeFreebox(object):
         except :
             self.config = None
 
+        SELECTEDFREEBOX = self.config.get("secret").get("freebox_hd1_or_hd2")
+        REMOTE_ADDR = "https://"+SELECTEDFREEBOX+".freebox.fr/pub/remote_control?code="
 
         # start listening to MQTT
         self.start_blocking()
