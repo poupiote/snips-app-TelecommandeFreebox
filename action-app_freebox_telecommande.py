@@ -55,12 +55,13 @@ class TelecommandeFreebox(object):
 
         if commandeFreebox is None:
             telecommande_msg = "Je ne comprend pas ce que vous me demandez"
+            quit()
+
         #else:
 
         FREEREMOTECODE = self.config.get("secret").get("freeremotecode")
 
 
-        print "Channel"
         if commandeFreebox == 'power':
             self.powerFreebox(FREEREMOTECODE)
         elif commandeFreebox == 'pip':
@@ -103,6 +104,7 @@ class TelecommandeFreebox(object):
         else :
             self.channelChange(commandeFreebox,FREEREMOTECODE)
 
+        quit()
             #telecommande_msg = 'J\'allume la télévision'
         # if need to speak the execution result by tts
         #    hermes.publish_start_session_notification(intent_message.site_id, telecommande_msg, "FreeboxTelecommande")
@@ -110,25 +112,31 @@ class TelecommandeFreebox(object):
     def nextChannel(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=prgm_inc')
+        quit()
 
     def previousChannel(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=prgm_dec')
+        quit()
 
     def left(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=left')
+        quit()
 
     def right(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=right')
+        quit()
 
     def next(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&KEY=next')
+        quit()
 
     def previous(self,FREEREMOTECODE):
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&KEY=prev')
+        quit()
 
     def powerFreebox(self,FREEREMOTECODE):
         time.sleep(1)
@@ -152,14 +160,18 @@ class TelecommandeFreebox(object):
             time.sleep(2)
             self.channelChange(DEFAULT_CHANNEL,FREEREMOTECODE)
 
+        quit()
+
     def switchPip(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=red')
+        quit()
 
     def stopPip(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=green')
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=ok')
+        quit()
 
     def pip(self,FREEREMOTECODE):
         time.sleep(1)
@@ -172,11 +184,13 @@ class TelecommandeFreebox(object):
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=ok')
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=red')
+        quit()
 
     def direct(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=green')
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=ok')
+        quit()
 
     def rewind(self,FREEREMOTECODE):
         time.sleep(1)
@@ -188,6 +202,7 @@ class TelecommandeFreebox(object):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=bwd&long=true')
         time.sleep(1)
+        quit()
 
     def forward(self,FREEREMOTECODE):
         time.sleep(1)
@@ -197,22 +212,27 @@ class TelecommandeFreebox(object):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=fwd&long=true')
         time.sleep(1)
+        quit()
 
     def playPause(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=play')
+        quit()
 
     def muteUnmute(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=mute')
+        quit()
 
     def volDown(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=vol_dec&long=true')
+        quit()
 
     def volUp(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=vol_inc&long=true')
+        quit()
 
     def television(self,FREEREMOTECODE):
         time.sleep(1)
@@ -221,10 +241,12 @@ class TelecommandeFreebox(object):
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=home')
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=ok')
+        quit()
 
     def exitProgTv(self,FREEREMOTECODE):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=red')
+        quit()
 
     def progTv(self,FREEREMOTECODE):
         time.sleep(1)
@@ -242,6 +264,7 @@ class TelecommandeFreebox(object):
         time.sleep(1)
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=ok')
         time.sleep(1)
+        quit()
 
     def twitch(selft,FREEREMOTECODE):
         time.sleep(1)
@@ -259,12 +282,14 @@ class TelecommandeFreebox(object):
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=down')
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=down')
         requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key=down')
+        quit()
 
 
     def channelChange(self,commandeFreebox,FREEREMOTECODE):
         time.sleep(1)
         for digit in commandeFreebox:
             requests.get(REMOTE_ADDR+FREEREMOTECODE+'&key='+digit)
+        quit()
 
     # --> Master callback function, triggered everytime an intent is recognized
     def FreeboxTelecommande_callback(self,hermes, intent_message):
