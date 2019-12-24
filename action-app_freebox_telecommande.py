@@ -149,7 +149,7 @@ class TelecommandeFreebox(object):
         coming_intent = intent_message.intent.intent_name
 
         print '[Recept] intent {}'.format(coming_intent)
-        if coming_intent == 'Tarlak:ChannelFreebox':
+        if coming_intent == 'voleurdespace:ChannelFreebox':
             self.askFreeboxCommand_callback(hermes, intent_message)
         # more callback and if condition goes here...
 
