@@ -70,13 +70,13 @@ class TelecommandeFreebox(object):
         #FREEREMOTECODE = self.config.get("secret").get("freeremotecode")
         jeedomAPIKEY = self.config.get("secret").get("jeedomAPIKEY")
 
-        if commandeFreebox == 'onsalon
+        if commandeFreebox == 'onsalon':
             self.onsalon(jeedomAPIKEY)
-        elif commandeFreebox == 'offsalon
+        elif commandeFreebox == 'offsalon':
             self.offsalon(jeedomAPIKEY)
-        elif commandeFreebox == 'onsejour
+        elif commandeFreebox == 'onsejour':
             self.onsejour(jeedomAPIKEY)
-        elif commandeFreebox == 'offsejour
+        elif commandeFreebox == 'offsejour':
             self.offsejour(jeedomAPIKEY)
         
         
